@@ -700,7 +700,7 @@ Note that this is a group, not an element.  It does not appear in the XML, but i
 			<xs:documentation>This group of optional elements describes the memory mapped registers of an address block</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element name="register">
+			<xs:element name="register" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A single register</xs:documentation>
 				</xs:annotation>
