@@ -231,7 +231,7 @@
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:whiteSpace value="collapse"/>
-            <xs:pattern value="\i[\p{L}\p{N}\.\-:_]*"/>
+            <xs:pattern value="[A-Za-z0-9\.\-:_]*"/>
         </xs:restriction>
     </xs:simpleType>
 
