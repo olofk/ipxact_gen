@@ -1,0 +1,2 @@
+mkdir -p out
+PYTHONPATH=. generateDS -f --super=ipxact -o out/ipxact.py -s out/ipxact_sub.py --user-methods=gends_user_methods 2014/index.xsd
