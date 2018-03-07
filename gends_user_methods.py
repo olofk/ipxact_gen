@@ -86,34 +86,10 @@ class MethodSpec(object):
 #
 # Sample method specification #1
 #
-method1 = MethodSpec(name='walk_and_update',
-    source='''\
-    def walk_and_update(self):
-        members = %(class_name)s._member_data_items
-        for member in members:
-            obj1 = getattr(self, member.get_name())
-            if member.get_data_type() == 'xs:date':
-                newvalue = date_calcs.date_from_string(obj1)
-                setattr(self, member.get_name(), newvalue)
-            elif member.get_container():
-                for child in obj1:
-                    if type(child) == types.InstanceType:
-                        child.walk_and_update()
-            else:
-                obj1 = getattr(self, member.get_name())
-                if type(obj1) == types.InstanceType:
-                    obj1.walk_and_update()
-        if %(class_name)s.superclass != None:
-          %(class_name)s.superclass.walk_and_update(self)
-''',
-    # class_names=r'^Employee$|^[a-zA-Z]*Dependent$',
-    class_names=r'^.*$',
-    )
 
-
-parsex = MethodSpec(name='parsex',
+parse_uint = MethodSpec(name='parse_uint',
     source='''\
-    def parsex(self):
+    def parse_uint(self):
         import re
         expr = self.valueOf_
         base = 10
@@ -156,5 +132,5 @@ parsex = MethodSpec(name='parsex',
 #   This list of specifications must be named METHOD_SPECS.
 #
 METHOD_SPECS = (
-    parsex,
+    parse_uint,
     )
